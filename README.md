@@ -44,7 +44,7 @@ After you buy your server, either a physical server or a virtual private server,
 
 Here is a example from server provider: 
 
-<img src="img/server_info.png" width="200">
+<img src="img/server_info.png" width="250">
 
 Open up a terminal window. For Windows 10 users, just use `Powershell` and for MacOs/Linux users, just use `terminal`. 
 
@@ -202,20 +202,22 @@ We are using a `FireFox` browser to test the proxy.
 
 Open `FireFox` and go to option.
 
-<img src="img/firefox_option.png" width="200">
+<img src="img/firefox_option.png" width="250">
 
 Then go to `Network Settings`
 
-<img src="img/networksetting.png" width="200">
+<img src="img/networksetting.png" width="500">
 
 Select Manual proxy configuration and enter the IP of your server and the port (default is 3128, enter your own if you changed it). Please check `Also use this proxy for FTP and HTTPS` as well. 
-<img src="img/poxyclient.png" width="200">
+
+<img src="img/poxyclient.png" width="500">
 
 Then press ok.
 
 Go to [www.whatismyip.com](https://www.whatismyip.com/) to check your ip. When you are trying to access the website, the browser will ask you for authentication. Enter correct username and password to continue.
-<img src="img/userpass.png" width="200">
+
+<img src="img/userpass.png" width="500">
 
 Press ok to continue. Check whether your ip has changed to your server's ip. If it changed, then the proxy is working.
 
-<img src="img/ip.png" width="200">
+<img src="img/ip.png" width="500">

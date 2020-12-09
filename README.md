@@ -202,20 +202,20 @@ We are using a `FireFox` browser to test the proxy.
 
 Open `FireFox` and go to option.
 
-<img src="img/firefox_option.png" style="width:200px">
+<img src="img/firefox_option.png" style="width:50px">
 
 Then go to `Network Settings`
 
-<img src="img/networksetting.png" stype="width:300px">
+<img src="img/networksetting.png" stype="width:50px">
 
 Select Manual proxy configuration and enter the IP of your server and the port (default is 3128, enter your own if you changed it). Please check `Also use this proxy for FTP and HTTPS` as well. 
-<img src="img/poxyclient.png" stype="width:300px">
+<img src="img/poxyclient.png" stype="width:50px">
 
 Then press ok.
 
 Go to [www.whatismyip.com](https://www.whatismyip.com/) to check your ip. When you are trying to access the website, the browser will ask you for authentication. Enter correct username and password to continue.
-<img src="img/userpass.png" stype="width:300px">
+<img src="img/userpass.png" stype="width:50px">
 
 Press ok to continue. Check whether your ip has changed to your server's ip. If it changed, then the proxy is working.
 
-<img src="img/ip.png" stype="width:200px">
+<img src="img/ip.png" stype="width:50px">

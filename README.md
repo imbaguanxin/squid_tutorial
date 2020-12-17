@@ -1,24 +1,47 @@
-# Setting up a HTTP proxy based on ubuntu server
+# <span style="color:blue;">Setting up a HTTP proxy based on ubuntu server</span>
+
+<img src="img/Proxy-Server.png" width="500">
 
 Build your own proxy. Hide youself on Internet. Break the Great Firewall.
 
-# Table of Contents
+# <span style="color:blue;">Table of Contents</span>
 
-- [Setting up a HTTP proxy based on ubuntu server](#setting-up-a-http-proxy-based-on-ubuntu-server)
-- [Table of Contents](#table-of-contents)
+- [<span style="color:blue;">Setting up a HTTP proxy based on ubuntu server</span>](#setting-up-a-http-proxy-based-on-ubuntu-server)
+- [<span style="color:blue;">Table of Contents</span>](#table-of-contents)
 - [<span style="color:blue;">Introduction</span>](#introduction)
-- [Steps and Guide](#steps-and-guide)
-  - [Connect to your server](#connect-to-your-server)
-  - [Install Squid Proxy and set up authentication](#install-squid-proxy-and-set-up-authentication)
-    - [Install squid](#install-squid)
-    - [Install apache2-utils](#install-apache2-utils)
-  - [Generate authentication](#generate-authentication)
-  - [Configure Squid Proxy authentication](#configure-squid-proxy-authentication)
-  - [Test from the client side](#test-from-the-client-side)
+  - [Proxy server](#proxy-server)
+  - [Apache Squid](#apache-squid)
+  - [Prerequisites](#prerequisites)
+  - [In this guide](#in-this-guide)
+- [<span style="color:blue;">Steps and Guide</span>](#steps-and-guide)
+  - [1. Connect to your server](#1-connect-to-your-server)
+  - [2. Install Squid Proxy and set up authentication](#2-install-squid-proxy-and-set-up-authentication)
+    - [<span style="color:grey;">Install squid</span>](#install-squid)
+    - [<span style="color:grey;">Install apache2-utils</span>](#install-apache2-utils)
+  - [3. Generate authentication](#3-generate-authentication)
+  - [4. Configure Squid Proxy authentication](#4-configure-squid-proxy-authentication)
+  - [5. Test from the client side](#5-test-from-the-client-side)
+- [<span style="color:blue;">Conclusion and Trouble Shooting</span>](#conclusion-and-trouble-shooting)
 
 # <span style="color:blue;">Introduction</span>
 
 This guide is about setting up a **HTTP proxy server** on a **ubuntu machine** based on **Apache Squid**
+
+## Proxy server
+
+A proxy server acts as a gateway between you and the internet. It’s an intermediary server separating end users from the websites they browse.
+
+## Apache Squid
+
+Squid is a caching and forwarding HTTP web proxy. It has a wide variety of uses, including speeding up a web server by caching repeated requests, caching web, DNS and other computer network lookups for a group of people sharing network resources, and aiding security by filtering traffic.
+
+## Prerequisites
+
+- A working **Ubuntu Server** (version higher than 18.04), with `root` authentication.
+- A local machine that can access internet and **your server**
+- Some basic knowledge with **terminal** and **command line based text editor**
+
+## In this guide
 
 This guide will offer instructions on:
 
@@ -34,9 +57,9 @@ This guide will not offer instructions on:
 - Basic commands in shell
 - Interacting with a command line based user interface and text editor
 
-# Steps and Guide
+# <span style="color:blue;">Steps and Guide</span>
 
-## Connect to your server
+## 1. Connect to your server
 
 Before buying the server, please set the operating system of the server to be `Ubuntu 18.04` or some newer version.
 
@@ -84,11 +107,11 @@ root@[your server host company name]:~#
 ```
 It means you have successfully logged in to the server.
 
-## Install Squid Proxy and set up authentication
+## 2. Install Squid Proxy and set up authentication
 
 This guide is using the opensourced Apache Squid to build the proxy server. We need install the `squid` for proxy server and `apache2-utils` for authentication.
 
-### Install squid
+### <span style="color:grey;">Install squid</span>
 ```shell
 sudo apt-get install squid
 ```
@@ -114,14 +137,14 @@ You should get output similar to:
 ```
 There is one line showing `active (running)` means you have successfully start the service.
 
-### Install apache2-utils
+### <span style="color:grey;">Install apache2-utils</span>
 
 Use following command:
 ```
 sudo apt-get install apache2-utils
 ```
 
-## Generate authentication
+## 3. Generate authentication
 
 This part shows how to set up the authentication based on **username** and **password**
 
@@ -153,7 +176,7 @@ The squid user should be able to read this file. Therefore, run the command to s
 chown squid /etc/squid/.squid_users
 ```
 
-## Configure Squid Proxy authentication
+## 4. Configure Squid Proxy authentication
 
 Since all seems fine, proceed to setup squid proxy basic authentication. Open the squid configuration file (`/etc/squid/squid.config`) for editing and add the authentication contents.
 
@@ -196,7 +219,7 @@ Once you are done with the configurations, save the file and restart squid:
 systemctl restart squid
 ```
 
-## Test from the client side
+## 5. Test from the client side
 
 We are using a `FireFox` browser to test the proxy.
 
@@ -221,3 +244,11 @@ Go to [www.whatismyip.com](https://www.whatismyip.com/) to check your ip. When y
 Press ok to continue. Check whether your ip has changed to your server's ip. If it changed, then the proxy is working.
 
 <img src="img/ip.png" width="500">
+
+# <span style="color:blue;">Conclusion and Trouble Shooting</span>
+
+After you successfully finished setting up the proxy server, your footprint on internet is harder to trace and your credential information becomes more secure.
+
+Friends from mainland China might also use this way to break the Great Firewall by the goverment and access services like Google, Facebook, Twitter and Spotify. Also, other more advanced (complicated) tools and protocols like `ShadowSockets`, `v2Ray` and `ShadowSocketsR` will provide you with better stablity.
+
+If you are customizing your port number and have difficulty get it work, the reason might be that your server provider do not open the desired port for you and you might want to contact the administrator of the server provider. A eaiser way would be change to another port number. Some common ports: "3080", "8080", "27000". Don't override the "22" port, you would have problem `ssh` to your server if you do so.

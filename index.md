@@ -6,7 +6,7 @@ Build your own proxy. Hide youself on Internet. Break the Great Firewall.
 
 - [Setting up a HTTP proxy based on ubuntu server](#setting-up-a-http-proxy-based-on-ubuntu-server)
 - [Table of Contents](#table-of-contents)
-- [Introduction](#introduction)
+- [<span style="color:blue;">Introduction</span>](#introduction)
 - [Steps and Guide](#steps-and-guide)
   - [Connect to your server](#connect-to-your-server)
   - [Install Squid Proxy and set up authentication](#install-squid-proxy-and-set-up-authentication)
@@ -16,7 +16,7 @@ Build your own proxy. Hide youself on Internet. Break the Great Firewall.
   - [Configure Squid Proxy authentication](#configure-squid-proxy-authentication)
   - [Test from the client side](#test-from-the-client-side)
 
-# Introduction
+# <span style="color:blue;">Introduction</span>
 
 This guide is about setting up a **HTTP proxy server** on a **ubuntu machine** based on **Apache Squid**
 

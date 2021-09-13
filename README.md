@@ -186,7 +186,7 @@ vim /etc/squid/squid.config
 ```
 Then paste the follwoing lines to the file and save it.
 ```shell
-auth_param basic program /usr/lib64/squid/basic_ncsa_auth /etc/squid/.squid_users
+auth_param basic program /usr/lib/squid3/basic_ncsa_auth /etc/squid/.squid_users
 auth_param basic children 5
 auth_param basic realm Proxy Authentication Required
 auth_param basic credentialsttl 2 hours
